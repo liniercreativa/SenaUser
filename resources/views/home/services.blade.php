@@ -100,21 +100,40 @@
 
         #engineering {
             scroll-margin-top: 100px;
-            /* Adjust value based on your header height */
+            scroll-behavior: smooth;
+            -webkit-scroll-margin-top: 100px;
+            /* Safari support */
+            padding-top: 100px;
+            margin-top: -100px;
         }
 
         #survey {
             scroll-margin-top: 100px;
+            scroll-behavior: smooth;
+            -webkit-scroll-margin-top: 100px;
+            /* Safari support */
+            padding-top: 100px;
+            margin-top: -100px;
             /* Adjust value based on your header height */
         }
 
         #inspection {
             scroll-margin-top: 100px;
+            scroll-behavior: smooth;
+            -webkit-scroll-margin-top: 100px;
+            /* Safari support */
+            padding-top: 100px;
+            margin-top: -100px;
             /* Adjust value based on your header height */
         }
 
         #consultant {
             scroll-margin-top: 100px;
+            scroll-behavior: smooth;
+            -webkit-scroll-margin-top: 100px;
+            /* Safari support */
+            padding-top: 100px;
+            margin-top: -100px;
             /* Adjust value based on your header height */
         }
 
@@ -493,11 +512,11 @@
             <div class="col tab-style-06">
                 <ul
                     class="nav nav-tabs alt-font justify-content-center border-0 text-center text-uppercase alt-font fw-500 mb-5">
-                    <li class="nav-item bg-white border-color-extra-medium-gray" style="margin-right: 15px;">
+                    <li class="nav-item bg-white border-color-extra-medium-gray m-5px  xs-m-5px">
                         <a class="nav-link active fw-500" data-bs-toggle="tab" href="#tab_six1">Software</a>
                         <span class="tab-bg-active bg-dark-gray"></span>
                     </li>
-                    <li class="nav-item bg-white border-color-extra-medium-gray">
+                    <li class="nav-item bg-white border-color-extra-medium-gray m-5px  xs-m-5px">
                         <a class="nav-link fw-500" data-bs-toggle="tab" href="#tab_six2">Hardware</a>
                         <span class="tab-bg-active bg-dark-gray"></span>
                     </li>

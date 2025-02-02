@@ -16139,7 +16139,15 @@
         border-width: 10px !important;
     }
 }
+
+/* tambahan mobile */
 @media (max-width: 575px) {
+    .vforcehmobile {
+        height: 195px !important;
+    }
+    .xs-mr-0px {
+        padding: 0px !important;
+    }
     .xs-p-5px {
         padding: 5px !important;
     }
@@ -16660,7 +16668,8 @@
         padding-bottom: 27% !important;
     }
     .xs-pb-28 {
-        padding-bottom: 28% !important;
+        /* padding-bottom: 28% !important; */
+        padding-bottom: 7% !important;
     }
     .xs-pb-29 {
         padding-bottom: 29% !important;

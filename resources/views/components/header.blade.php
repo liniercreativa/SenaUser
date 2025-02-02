@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>PT Sena</title>
+    <title>PT. Solusi Energy Nusantara</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="ThemeZaa" />
@@ -160,7 +160,7 @@
                             </li> --}}
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Career</a>
+                                <a href="https://karirsena.pt-sena.co.id" class="nav-link" target="_blank">Career</a>
                             </li>
                         </ul>
                     </div>

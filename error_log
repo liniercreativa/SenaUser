@@ -1,0 +1,1 @@
+[02-Jan-2025 07:42:31 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 7.2.34. in /home/ptsenaco/compro_sena/vendor/composer/platform_check.php on line 24

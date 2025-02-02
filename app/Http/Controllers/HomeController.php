@@ -27,6 +27,7 @@ use App\Models\News;
 use App\Models\Title;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Aboutus_image_slider;
 
 
 
@@ -99,7 +100,9 @@ class HomeController extends Controller
         $titles = Title::where('id', 2)->first();
         $title3 = Title::where('id', 3)->first();
 
-        return view('home.aboutus', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'sliders', 'about', 'capabilities', 'clientsleft', 'clientsright', 'visimisi', 'akhlaks', 'petinggis', 'piagam', 'counter', 'titles',  'title3'));
+        $aboutusimageslider = Aboutus_image_slider::all();
+
+        return view('home.aboutus', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'sliders', 'about', 'capabilities', 'clientsleft', 'clientsright', 'visimisi', 'akhlaks', 'petinggis', 'piagam', 'counter', 'titles',  'title3', 'aboutusimageslider'));
     }
 
     function capability()

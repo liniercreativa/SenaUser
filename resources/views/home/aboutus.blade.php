@@ -30,20 +30,81 @@
         <div class="container">
             <div class="row align-items-center"
                 data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                <div class="col-lg-6 position-relative md-mb-14 sm-mb-17 xs-mb-23">
-                    <div class="w-70 md-w-75 xs-w-90" data-animation-delay="50" data-shadow-animation="true">
-                        <img src="{{ $globalurl }}{{ $about->image }}" alt="" class="border-radius-8px w-100">
+                <div class="col-lg-6 position-relative md-mb-14 sm-mb-17 xs-mb-7">
+                    <div class="" data-animation-delay="50" data-shadow-animation="true">
+                        {{--  w-70 md-w-75 xs-w-90 <img src="{{ $globalurl }}{{ $about->image }}" alt="" class="border-radius-8px w-100">
+                        <img src="{{ $globalurl }}{{ $about->image }}" alt=""
+                            class="border-radius-8px w-100"> --}}
+                        <div class="carousel-image">
+                            <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner border-radius-8px">
+
+                                    {{-- <div class="carousel-item active">
+                                        <img src="{{ $globalurl }}{{ $about->image }}"
+                                            class="d-block w-100 border-radius-8px" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ $globalurl }}{{ $about->image }}"
+                                            class="d-block w-100 border-radius-8px" alt="...">
+                                    </div> --}}
+
+                                    @foreach ($aboutusimageslider as $key => $slider)
+                                        <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                                            <img src="{{ $globalurl }}{{ $slider->image }}"
+                                                class="d-block w-100 border-radius-8px"
+                                                alt="About Us Image {{ $key + 1 }}">
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <button class="carousel-control-prev bg-control" type="button"
+                                    data-bs-target="#imageCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next bg-control" type="button"
+                                    data-bs-target="#imageCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="w-55 overflow-hidden position-absolute right-15px xs-w-60 bottom-minus-20px"
+
+                    <style>
+                        .bg-control {
+                            background: rgba(0, 0, 0, 0.5);
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            border: none;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            transition: background 0.3s ease;
+                        }
+
+                        .bg-control:hover {
+                            background: rgba(0, 0, 0, 0.7);
+                        }
+
+                        .carousel-control-prev {
+                            left: 10px;
+                        }
+
+                        .carousel-control-next {
+                            right: 10px;
+                        }
+                    </style>
+                    {{--  <div class="w-55 overflow-hidden position-absolute right-15px xs-w-60 bottom-minus-20px"
                         data-shadow-animation="true" data-animation-delay="250"
                         data-bottom-top="transform: translateY(50px)" data-top-bottom="transform: translateY(-50px)">
                         <img src="{{ $globalurl }}{{ $about->image2 }}" alt=""
                             class="border-radius-8px w-100 box-shadow-quadruple-large" />
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-xl-5 offset-xl-1 col-lg-6 text-center text-lg-start">
                     <span
-                        class="bg-solitude-blue text-uppercase fs-13 ps-25px pe-25px alt-font fw-600 text-base-color lh-40 sm-lh-55 border-radius-100px d-inline-block mb-25px">About
+                        class="bg-solitude-blue text-uppercase fs-13 ps-25px pe-25px alt-font fw-600 text-base-color lh-40 sm-lh-55 border-radius-100px d-inline-block mb-25px">
                         {{ $about->sub_headline }}</span>
                     <h3 class="alt-font text-dark-gray fw-600 ls-minus-1px mb-20px sm-w-85 xs-w-100 mx-auto">
                         {{ $about->main_headline }}
@@ -51,14 +112,12 @@
                     {!! $about->description !!}
                 </div>
             </div>
-            <div class="mt-70px row row-cols-1 row-cols-md-4 row-cols-sm-2 justify-content-center text-center counter-style-04"
+            <div class="xs-mt-7 mt-70px row row-cols-1 row-cols-md-4 row-cols-sm-2 justify-content-center text-center counter-style-04"
                 data-anime='{"el": "childs", "opacity": [0,1], "translateX": [50, 0], "duration": 800, "delay":300, "staggervalue": 300, "easing": "easeOutQuad" }'>
 
                 @foreach ($counter as $item)
-                    <div class="col last-paragraph-no-margin sm-mb-40px">
+                    <div class="col-6 col-md-3 last-paragraph-no-margin sm-mb-40px">
                         <p>{{ $item->title }}</p>
-                        {{-- <h2 class="alt-font fw-900 text-dark-gray m-0 counter-number counter" data-speed="2000"
-                            data-to="{{ $item->number }}" data-text="+"></h2> --}}
                         <h2 class="vertical-counter d-inline-flex text-dark-gray fw-700 ls-minus-2px mt-5 mb-0 ls-minus-1px"
                             data-text="{{ $item->prefix }}" data-to="{{ $item->number }}"></h2>
                     </div>
@@ -152,7 +211,7 @@
         style="background-image: url('{{ $globalurl }}{{ $about->background_akhlak }}')" id="ourculture">
         <div class="container">
             <div class="row justify-content-center mb-3">
-                <div class="col-xl-8 col-lg-7 col-md-12 text-center"
+                <div class="col-xl-10 col-lg-10 col-md-12 text-center"
                     data-anime='{ "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                     <span
                         class="fw-600 ls-1px fs-16 alt-font d-inline-block text-uppercase mb-5px text-base-color">{{ $titles->texttitle }}</span>
@@ -272,7 +331,7 @@
         <div class="container">
             <div class="row justify-content-center align-items-center mb-6 text-center text-lg-start">
                 <div class="row justify-content-center mb-3">
-                    <div class="col-xl-5 col-lg-6 col-sm-8 text-center"
+                    <div class="col-xl-10 col-lg-10 col-sm-12 text-center"
                         data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                         <h3 class="alt-font text-dark-gray fw-600 ls-minus-2px">
                             DEWAN KOMISARIS DAN DIREKSI
@@ -282,12 +341,12 @@
                 <div class="col tab-style-06">
                     <ul
                         class="nav nav-tabs alt-font justify-content-center border-0 text-center text-uppercase alt-font fw-500 mb-5">
-                        <li class="nav-item bg-white border-color-extra-medium-gray" style="margin-right:20px;">
+                        <li class="nav-item bg-white border-color-extra-medium-gray m-5px  xs-m-5px">
                             <a class="nav-link active fw-500" data-bs-toggle="tab" href="#direksi">Direksi</a>
                             <span class="tab-bg-active bg-dark-gray"></span>
                         </li>
 
-                        <li class="nav-item bg-white border-color-extra-medium-gray">
+                        <li class="nav-item bg-white border-color-extra-medium-gray m-5px  xs-m-5px">
                             <a class="nav-link  fw-500" data-bs-toggle="tab" href="#komisaris">Komisaris</a>
                             <span class="tab-bg-active bg-dark-gray"></span>
                         </li>
@@ -453,7 +512,7 @@
     <section style="background-color:#f7f7f7 !important;" id="awards">
         <div class="container">
             <div class="row justify-content-center mb-3">
-                <div class="col-xl-8 col-lg-7 col-md-12 text-center"
+                <div class="col-xl-10 col-lg-10 col-sm-12 text-center"
                     data-anime='{ "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                     <span
                         class="fw-600 ls-1px fs-16 alt-font d-inline-block text-uppercase mb-5px text-base-color">{{ $title3->texttitle }}</span>
@@ -461,12 +520,60 @@
                 </div>
             </div>
 
+            <div class="row justify-content-center align-items-center mb-6 text-center text-lg-start">
+                <div class="col tab-style-06">
+                    <ul
+                        class="nav nav-tabs alt-font justify-content-center border-0 text-center text-uppercase alt-font fw-500 mb-5">
+                        <li class="nav-item bg-white border-color-extra-medium-gray m-5px  xs-m-5px"
+                            style="margin-right:20px;">
+                            <a class="nav-link active fw-500" data-bs-toggle="tab" href="#award">Award</a>
+                            <span class="tab-bg-active bg-dark-gray"></span>
+                        </li>
+
+                        <li class="nav-item bg-white border-color-extra-medium-gray m-5px  xs-m-5px">
+                            <a class="nav-link  fw-500" data-bs-toggle="tab" href="#sertifikat">Sertifikat</a>
+                            <span class="tab-bg-active bg-dark-gray"></span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
             <div class="row justify-content-center">
-                @foreach ($piagam as $val)
-                    <div class="col-4 mb-15px">
-                        <img src="{{ $globalurl }}{{ $val->image }}" onclick="showPopup(src)">
+
+                <div class="tab-content">
+                    <!-- Tab Direksi -->
+                    <div class="tab-pane fade show active" id="award">
+                        <div class="row justify-content-center">
+                            @foreach ($piagam as $val)
+                                @if ($val->kategori == 'award')
+                                    <div class="col-4 mb-15px">
+                                        <img src="{{ $globalurl }}{{ $val->image }}" onclick="showPopup(src)">
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
-                @endforeach
+
+
+                    <!-- Tab Komisaris -->
+                    <div class="tab-pane fade " id="sertifikat">
+                        <div class="row justify-content-center">
+                            @foreach ($piagam as $val)
+                                @if ($val->kategori == 'sertifikat')
+                                    <div class="col-4 mb-15px">
+                                        <img src="{{ $globalurl }}{{ $val->image }}" onclick="showPopup(src)">
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
                 {{--  <div class="col-4 mb-15px">
                     <img src="{{ URL::asset('assets') }}/image/sertifikat/sertif3.jpg">
                 </div> --}}

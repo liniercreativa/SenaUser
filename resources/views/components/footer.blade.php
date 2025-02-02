@@ -32,8 +32,9 @@
                              {{ $footer->alamat_pt }}
                              <br>
                              <a href="https://maps.app.goo.gl/WSKyxkG5dP7yT8H46" target="_blank"
-                                 class="fs-14 text-dark-gray text-uppercase fw-600">
-                                 <span class="">View
+                                 class="fs-14 text-dark-gray text-uppercase fw-600"
+                                 style="color: #63A5BF;font-weight: bold;">
+                                 <span class="" style="color: #63A5BF;font-weight: bold;">View
                                      on google map</span>
                              </a>
                          </p>

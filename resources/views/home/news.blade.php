@@ -18,12 +18,12 @@
 
 
 
-    <section class="pt-5 ps-15 pe-15 xl-ps-2 xl-pe-2 lg-ps-2 lg-pe-2 sm-mx-0">
+    <section class="pt-5 ps-7 pe-7 xxl-ps-3 xxl-pe-3 xs-px-0 cover-background background-position-center-top">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <ul
-                        class="blog-classic blog-wrapper grid-loading grid grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
+                        class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-4col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
                         <li class="grid-sizer"></li>
 
                         @foreach ($news as $item)
@@ -37,15 +37,14 @@
                                     <div class="card-body px-0 pt-30px pb-30px">
                                         <span class="fs-13 text-uppercase mb-5px d-block">
                                             <a href="{{ url('detail/' . $item->slug) }}"
-                                                class="blog-date text-dark-gray-hover">26 August
-                                                2023</a></span>
+                                                class="blog-date text-dark-gray-hover">{{ $item->created_at->format('d-m-Y') }}</a></span>
                                         <a href="{{ url('detail/' . $item->slug) }}"
                                             class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">
                                             {{ $item->title }}</a>
                                         {!! Str::words($item->content, 10) !!}
                                         <a href="{{ url('detail/' . $item->slug) }}"
-                                            class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">More
-                                            reading<i class="feather icon-feather-arrow-right icon-very-small"></i></a>
+                                            class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">Selengkapnya<i
+                                                class="feather icon-feather-arrow-right icon-very-small"></i></a>
                                     </div>
                                 </div>
                             </li>

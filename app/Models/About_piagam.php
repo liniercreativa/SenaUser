@@ -9,5 +9,5 @@ class About_piagam extends Model
 {
     use HasFactory;
     protected $table = 'about_piagam';
-    protected $fillable = ['image', 'title'];
+    protected $fillable = ['image', 'title', 'kategori'];
 }

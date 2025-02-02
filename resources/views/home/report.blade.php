@@ -238,8 +238,13 @@
 
                         <!-- Subject Field -->
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control border-0 bg-light" id="subject"
-                                name="subject" placeholder="Subject" required>
+                            {{-- <input type="text" class="form-control border-0 bg-light" id="subject"
+                                name="subject" placeholder="Subject" required> --}}
+                            <select class="form-select border-0 bg-light" id="subject" name="subject" required
+                                style="padding-top: 0.625rem;">
+                                <option value="Corporate Needs">Corporate Needs</option>
+                                <option value="Commercial">Commercial</option>
+                            </select>
                             {{-- <label for="subject">Subject</label> --}}
                         </div>
 

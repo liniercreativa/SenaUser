@@ -1,5 +1,6 @@
 /*!
-
+    Carto - Interactive portfolio
+    Created by ThemeZaa
 !*/
 
 $(function() {

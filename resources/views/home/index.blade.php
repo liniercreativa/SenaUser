@@ -50,7 +50,7 @@
 
                 <div class="col-xl-5 col-lg-6 col-md-9 text-center text-lg-start">
                     <div
-                        class="position-relative overflow-hidden rounded-4 h-350px lg-h-400px d-flex align-items-center justify-content-center w-100">
+                        class="position-relative overflow-hidden vforcehmobile rounded-4 h-350px lg-h-400px d-flex align-items-center justify-content-center w-100">
                         <div class="ratio ratio-16x9 w-100">
                             <iframe class="rounded-4" src="{{ $about->link_video }}" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 offset-xl-1 position-relative"
+                <div class="col-xl-6 col-lg-6 offset-xl-1 position-relative xs-pt-25px"
                     data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                     <span
                         class="bg-solitude-blue text-uppercase fs-13 ps-25px pe-25px alt-font fw-600 text-base-color lh-40 sm-lh-55 border-radius-100px d-inline-block mb-25px">{{ $about->sub_headline }}</span>
@@ -78,10 +78,8 @@
                 style="margin-top:20px;">
 
                 @foreach ($counter as $item)
-                    <div class="col last-paragraph-no-margin sm-mb-40px">
+                    <div class="col-6 col-md-3 last-paragraph-no-margin sm-mb-40px">
                         <p>{{ $item->title }}</p>
-                        {{-- <h2 class="alt-font fw-900 text-dark-gray m-0 counter-number counter" data-speed="2000"
-                            data-to="{{ $item->number }}" data-text="+"></h2> --}}
                         <h2 class="vertical-counter d-inline-flex text-dark-gray fw-700 ls-minus-2px mt-5 mb-0 ls-minus-1px"
                             data-text="{{ $item->prefix }}" data-to="{{ $item->number }}"></h2>
                     </div>
@@ -454,8 +452,8 @@
                 <div class="col-xl-7 col-lg-9 col-md-10 text-center">
                     <span
                         class="bg-solitude-blue text-uppercase fs-13 ps-25px pe-25px alt-font fw-600 text-base-color lh-40 sm-lh-55 border-radius-100px d-inline-block mb-25px"
-                        data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>Latest
-                        news</span>
+                        data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>Berita
+                        Terkini</span>
                     <h3 class="alt-font text-dark-gray fw-600 ls-minus-1px"
                         data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                         Tetap Update dangan Berita Terbaru Kami
@@ -523,7 +521,7 @@
                                                     <a href="{{ url('detail/' . $item->slug) }}"
                                                         class="btn btn-link btn-hover-animation-switch btn-medium fw-700 text-dark-gray text-uppercase">
                                                         <span>
-                                                            <span class="btn-text">Read More</span>
+                                                            <span class="btn-text">Selengkapnya</span>
                                                             <span class="btn-icon"><i
                                                                     class="fa-solid fa-arrow-right"></i></span>
                                                             <span class="btn-icon"><i
@@ -543,9 +541,9 @@
                         </div>
 
                         <div class="text-center mt-4">
-                            <a href="{{ url('news') }}" class="btn btn-primary"
-                                style="background-color: #63a5bf; text-transform:capitalize;">View
-                                All News</a>
+                            <a href="{{ url('news') }}"
+                                class="btn btn-large btn-rounded btn-base-color btn-box-shadow box-shadow-large mt-20px sm-mt-0">Lihat
+                                Berita Lainnya</a>
                         </div>
                     </div>
                 </div>
@@ -585,8 +583,8 @@
 
                         @foreach ($clientsleft as $clientleft)
                             <div class="swiper-slide">
-                                <a href="#"><img src="{{ $globalurl }}{{ $clientleft->image }}"
-                                        class="h-70px xs-h-60px" alt="" /></a>
+                                <a><img src="{{ $globalurl }}{{ $clientleft->image }}" class="h-70px xs-h-60px"
+                                        alt="" /></a>
                             </div>
                         @endforeach
 
@@ -602,8 +600,8 @@
 
                         @foreach ($clientsright as $clientright)
                             <div class="swiper-slide">
-                                <a href="#"><img src="{{ $globalurl }}{{ $clientright->image }}"
-                                        class="h-70px xs-h-60px" alt="" /></a>
+                                <a><img src="{{ $globalurl }}{{ $clientright->image }}" class="h-70px xs-h-60px"
+                                        alt="" /></a>
                             </div>
                         @endforeach
 
