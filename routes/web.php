@@ -24,6 +24,7 @@ Route::post('/submitdownload', [App\Http\Controllers\HomeController::class, 'sub
 
 
 Route::get('/news', [App\Http\Controllers\HomeController::class, 'news'])->name('news');
+Route::get('/investor', [App\Http\Controllers\HomeController::class, 'investor'])->name('investor');
 Route::get('/article', [App\Http\Controllers\HomeController::class, 'article'])->name('article');
 Route::get('/detail/{slug}', [App\Http\Controllers\HomeController::class, 'detail'])->name('detail');
 

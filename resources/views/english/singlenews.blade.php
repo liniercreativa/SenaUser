@@ -35,7 +35,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
                     <h4 class="alt-font fw-600 ls-minus-2px text-dark-gray mx-auto mb-5">
-                        {{ $news->title }}
+                        {{ $news->title_eng }}
                     </h4>
                     <i
                         class="feather icon-feather-more-horizontal- icon-double-large text-light-gray d-inline-block mb-5 d-inline-block"></i>
@@ -65,7 +65,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="dropcap-style-02 last-paragraph-no-margin">
-                        {!! $news->content !!}
+                        {!! $news->content_eng !!}
                         <!-- <div class="h-3px w-100 bg-dark-gray"></div> -->
                     </div>
                 </div>
@@ -92,18 +92,18 @@
                             <li class="grid-item">
                                 <div class="card bg-transparent border-0 h-100">
                                     <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="{{ url('detail/' . $item->slug) }}"><img
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"><img
                                                 src="{{ $globalurl }}{{ $item->image }}" alt="" /></a>
                                     </div>
                                     <div class="card-body px-0 pt-30px pb-30px">
                                         <span class="fs-13 text-uppercase mb-5px d-block">
-                                            <a href="{{ url('detail/' . $item->slug) }}"
+                                            <a href="{{ url('detail/' . $item->slug_eng) }}"
                                                 class="blog-date text-dark-gray-hover">{{ $item->created_at->format('d M Y') }}</a></span>
-                                        <a href="{{ url('detail/' . $item->slug) }}"
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"
                                             class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">
-                                            {{ $item->title }}</a>
-                                        {!! Str::words($item->content, 10) !!}
-                                        <a href="{{ url('detail/' . $item->slug) }}"
+                                            {{ $item->title_eng }}</a>
+                                        {!! Str::words($item->content_eng, 10) !!}
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"
                                             class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">Selengkapnya<i
                                                 class="feather icon-feather-arrow-right icon-very-small"></i></a>
                                     </div>

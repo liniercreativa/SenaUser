@@ -22,7 +22,7 @@
             <div class="col-xl-7 col-lg-9 col-md-10 text-center">
                 <h3 class="alt-font text-dark-gray fw-600 ls-minus-1px"
                     data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                    Berita
+                    News
                 </h3>
             </div>
         </div>
@@ -38,18 +38,18 @@
                             <li class="grid-item">
                                 <div class="card bg-transparent border-0 h-100">
                                     <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="{{ url('detail/' . $item->slug) }}"><img
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"><img
                                                 src="{{ $globalurl }}{{ $item->image }}" alt="" /></a>
                                     </div>
                                     <div class="card-body px-0 pt-30px pb-30px">
                                         <span class="fs-13 text-uppercase mb-5px d-block">
-                                            <a href="{{ url('detail/' . $item->slug) }}"
+                                            <a href="{{ url('detail/' . $item->slug_eng) }}"
                                                 class="blog-date text-dark-gray-hover">{{ $item->created_at->format('d-m-Y') }}</a></span>
-                                        <a href="{{ url('detail/' . $item->slug) }}"
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"
                                             class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">
-                                            {{ $item->title }}</a>
-                                        {!! Str::words($item->content, 10) !!}
-                                        <a href="{{ url('detail/' . $item->slug) }}"
+                                            {{ $item->title_eng }}</a>
+                                        {!! Str::words($item->content_eng, 10) !!}
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"
                                             class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">Selengkapnya<i
                                                 class="feather icon-feather-arrow-right icon-very-small"></i></a>
                                     </div>
@@ -95,18 +95,18 @@
                             <li class="grid-item">
                                 <div class="card bg-transparent border-0 h-100">
                                     <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="{{ url('detail/' . $item->slug) }}"><img
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"><img
                                                 src="{{ $globalurl }}{{ $item->image }}" alt="" /></a>
                                     </div>
                                     <div class="card-body px-0 pt-30px pb-30px">
                                         <span class="fs-13 text-uppercase mb-5px d-block">
-                                            <a href="{{ url('detail/' . $item->slug) }}"
+                                            <a href="{{ url('detail/' . $item->slug_eng) }}"
                                                 class="blog-date text-dark-gray-hover">{{ $item->created_at->format('d-m-Y') }}</a></span>
-                                        <a href="{{ url('detail/' . $item->slug) }}"
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"
                                             class="card-title mb-10px fw-600 fs-17 lh-26 text-dark-gray text-dark-gray-hover d-inline-block w-95">
                                             {{ $item->title }}</a>
                                         {!! Str::words($item->content, 10) !!}
-                                        <a href="{{ url('detail/' . $item->slug) }}"
+                                        <a href="{{ url('detail/' . $item->slug_eng) }}"
                                             class="card-link alt-font fs-12 text-uppercase text-dark-gray text-dark-gray-hover fw-700">More
                                             reading<i class="feather icon-feather-arrow-right icon-very-small"></i></a>
                                     </div>
@@ -130,7 +130,7 @@
             <div class="col-xl-7 col-lg-9 col-md-10 text-center">
                 <h3 class="alt-font text-dark-gray fw-600 ls-minus-1px"
                     data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                    Laporan Tahunan
+                    Annual Report
                 </h3>
             </div>
         </div>

@@ -43,8 +43,18 @@ class HomeController extends Controller
     {
         $this->globalurl = 'http://dashboardsena.liniercreativa.my.id/upload/image/';
     }
-    function index()
+    function index(Request $request)
     {
+
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
+
+
+
+
         /* Header */
         $header = Header::where('id', 1)->first();
         $title = 'Home Page';
@@ -66,19 +76,33 @@ class HomeController extends Controller
         $news = News::where('status', 'published')->where('jenis', 'news')->get();
         $titles = Title::where('id', 1)->first();
 
-        return view('home.index', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'sliders', 'about', 'capabilities', 'clientsleft', 'clientsright', 'counter', 'news', 'titles'));
+        $view = ($lang == 'en') ? 'english.index' : 'home.index';
+
+        return view($view, compact('title', 'seo_title', 'seo_meta_description', 'logo', 'sliders', 'about', 'capabilities', 'clientsleft', 'clientsright', 'counter', 'news', 'titles'));
+
+        //return view('home.index', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'sliders', 'about', 'capabilities', 'clientsleft', 'clientsright', 'counter', 'news', 'titles'));
     }
 
-    function aboutus()
+    function aboutus(Request $request)
     {
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
+
         /* Header */
         $header = Header::where('id', 1)->first();
-        $title = 'About Us';
+        //$title = 'About Us';
+        $title = ($lang == 'en') ? 'About Us' : 'Tentang Kami';
         $seo_title = 'Home Page';
         $seo_meta_description = 'Penyedia layanan engineering end to end mulai dari conceptual study hingga commissioning di sektor Oil & Gas ';
         $logo = $this->globalurl . $header->logo;
         $header_image = $this->globalurl . $header->header_about_us_image;
-        $header_text = $header->header_about_us_text;
+        //$header_text = $header->header_about_us_text;
+        $header_text = ($lang == 'en') ? $header->header_about_us_text_eng : $header->header_about_us_text;
+
         /* Header */
 
 
@@ -102,26 +126,42 @@ class HomeController extends Controller
 
         $aboutusimageslider = Aboutus_image_slider::all();
 
-        return view('home.aboutus', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'sliders', 'about', 'capabilities', 'clientsleft', 'clientsright', 'visimisi', 'akhlaks', 'petinggis', 'piagam', 'counter', 'titles',  'title3', 'aboutusimageslider'));
+        $view = ($lang == 'en') ? 'english.aboutus' : 'home.aboutus';
+
+        return view($view, compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'sliders', 'about', 'capabilities', 'clientsleft', 'clientsright', 'visimisi', 'akhlaks', 'petinggis', 'piagam', 'counter', 'titles',  'title3', 'aboutusimageslider'));
+
+        /* return view('home.aboutus', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'sliders', 'about', 'capabilities', 'clientsleft', 'clientsright', 'visimisi', 'akhlaks', 'petinggis', 'piagam', 'counter', 'titles',  'title3', 'aboutusimageslider')); */
     }
 
-    function capability()
+    function capability(Request $request)
     {
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
+
+
         /* Header */
         $header = Header::where('id', 1)->first();
-        $title = 'Capability';
+        $title = ($lang == 'en') ? 'Capability' : 'Kapabilitas';
         $seo_title = 'Capability';
         $seo_meta_description = 'Penyedia layanan engineering end to end mulai dari conceptual study hingga commissioning di sektor Oil & Gas ';
         $logo = $this->globalurl . $header->logo;
         $header_image = $this->globalurl . $header->header_capability_image;
-        $header_text = $header->header_capability_text;
+        //$header_text = $header->header_capability_text;
+        $header_text = ($lang == 'en') ? $header->header_capability_text_eng : $header->header_capability_text;
         /* Header */
 
         $services = Service::all();
         $disiplin = Service_discipline::where('id', 1)->first();
         $softwaredanhardware = Service_softwaredanhardware::all();
 
-        return view('home.services', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'services', 'disiplin', 'softwaredanhardware'));
+
+        $view = ($lang == 'en') ? 'english.services' : 'home.services';
+        return view($view, compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'services', 'disiplin', 'softwaredanhardware'));
+
+        //return view('home.services', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'services', 'disiplin', 'softwaredanhardware'));
     }
 
 
@@ -132,16 +172,24 @@ class HomeController extends Controller
 
 
 
-    function experience()
+    function experience(Request $request)
     {
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
+
         /* Header */
         $header = Header::where('id', 1)->first();
-        $title = 'Experience';
+        //$title = 'Experience';
+        $title = ($lang == 'en') ?  'Experience' :  'Pengalaman';
         $seo_title = 'Experience';
         $seo_meta_description = 'Penyedia layanan engineering end to end mulai dari conceptual study hingga commissioning di sektor Oil & Gas ';
         $logo = $this->globalurl . $header->logo;
         $header_image = $this->globalurl . $header->header_experience_image;
-        $header_text = $header->header_experience_text;
+        //$header_text = $header->header_experience_text;
+        $header_text = ($lang == 'en') ? $header->header_experience_text_eng : $header->header_experience_text;
         /* Header */
 
         $project = Project::all();
@@ -155,29 +203,44 @@ class HomeController extends Controller
         $title6 = Title::where('id', 6)->first();
 
 
-        return view('home.experience', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'clientsleft', 'clientsright', 'project', 'title4', 'title5', 'title6'));
+        $view = ($lang == 'en') ? 'english.experience' : 'home.experience';
+        return view($view, compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'clientsleft', 'clientsright', 'project', 'title4', 'title5', 'title6'));
+
+        //return view('home.experience', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'clientsleft', 'clientsright', 'project', 'title4', 'title5', 'title6'));
     }
 
 
 
 
 
-    function contactus()
+    function contactus(Request $request)
     {
+
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
+
+
         /* Header */
         $header = Header::where('id', 1)->first();
-        $title = 'Contact Us';
+        $title = ($lang == 'en') ? 'Contact Us' : 'Hubungi Kami';
         $seo_title = 'Contact Us';
         $seo_meta_description = 'Penyedia layanan engineering end to end mulai dari conceptual study hingga commissioning di sektor Oil & Gas ';
         $logo = $this->globalurl . $header->logo;
         $header_image = $this->globalurl . $header->header_contact_us_image;
-        $header_text = $header->header_contact_us_text;
+        $header_text = ($lang == 'en') ? $header->header_contact_us_text_eng : $header->header_contact_us_text;
         /* Header */
 
-
-
         $contact = Contact_us::where('id', 1)->first();
-        return view('home.contactus', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'contact'));
+
+        $view = ($lang == 'en') ? 'english.contactus' : 'home.contactus';
+        return view($view, compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'contact', 'lang'));
+
+
+
+        //return view('home.contactus', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'contact'));
     }
 
     function bisnisstore(Request $request)
@@ -349,20 +412,51 @@ class HomeController extends Controller
 
 
     /* News */
-    public function news()
+    public function news(Request $request)
     {
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
         /* Header */
         $header = Header::where('id', 1)->first();
-        $title = 'News';
+        $title = ($lang == 'en') ? 'News' : 'Berita';
         $seo_title = 'News';
         $seo_meta_description = 'Penyedia layanan engineering end to end mulai dari conceptual study hingga commissioning di sektor Oil & Gas ';
         $logo = $this->globalurl . $header->logo;
         $header_image = $this->globalurl . $header->header_news_image;
-        $header_text = $header->header_news_text;
+        $header_text = ($lang == 'en') ? $header->header_news_text_eng : $header->header_news_text;
         /* Header */
 
         $news = News::where('status', 'published')->where('jenis', 'news')->get();
         return view('home.news', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'news'));
+    }
+
+
+    /* Investor */
+    public function investor(Request $request)
+    {
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
+
+        /* Header */
+        $header = Header::where('id', 1)->first();
+        $title = ($lang == 'en') ? 'Investor' : 'Investor';
+        $seo_title = 'Investor';
+        $seo_meta_description = 'Penyedia layanan engineering end to end mulai dari conceptual study hingga commissioning di sektor Oil & Gas ';
+        $logo = $this->globalurl . $header->logo;
+        $header_image = $this->globalurl . $header->header_investor_image;
+        $header_text = ($lang == 'en') ? $header->header_investor_text_eng : $header->header_investor_text;
+        /* Header */
+
+        $news = News::where('status', 'published')->where('jenis', 'investor')->get();
+
+        $view = ($lang == 'en') ? 'english.investor' : 'home.investor';
+        return view($view, compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'news'));
     }
 
     public function article()
@@ -382,11 +476,18 @@ class HomeController extends Controller
     }
 
 
-    public function detail($slug)
+    public function detail(Request $request, $slug)
     {
+
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
+
         /* Header */
         $header = Header::where('id', 1)->first();
-        $title = '';
+        $title = 'asdasd';
         $seo_title = 'Detail';
         $seo_meta_description = 'Penyedia layanan engineering end to end mulai dari conceptual study hingga commissioning di sektor Oil & Gas ';
         $logo = $this->globalurl . $header->logo;
@@ -395,25 +496,34 @@ class HomeController extends Controller
         /* Header */
 
 
-        $news = News::where('slug', $slug)->first();
+        $news = News::where('slug_eng', $slug)->first();
         $newsall = News::where('status', 'published')->get();
 
-        return view('home.singlenews', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'news', 'newsall'));
+        $view = ($lang == 'en') ? 'english.singlenews' : 'home.singlenews';
+        return view($view, compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'news', 'newsall'));
     }
 
 
 
 
-    public function mediainvestor()
+    public function mediainvestor(Request $request)
     {
+
+        // Get language from URL parameter or use session
+        $lang = $request->query('lang', session('lang', 'id'));
+        // Store language in session for future requests
+        session(['lang' => $lang]);
+
+
+
         /* Header */
         $header = Header::where('id', 1)->first();
-        $title = 'News';
+        $title = ($lang == 'en') ? 'News & Media' : 'Berita & Media';
         $seo_title = 'News';
         $seo_meta_description = 'Penyedia layanan engineering end to end mulai dari conceptual study hingga commissioning di sektor Oil & Gas ';
         $logo = $this->globalurl . $header->logo;
         $header_image = $this->globalurl . $header->header_mediainvestor_image;
-        $header_text = $header->header_mediainvestor_text;
+        $header_text = ($lang == 'en') ? $header->header_mediainvestor_text_eng : $header->header_mediainvestor_text;
         /* Header */
 
         $news = News::where('status', 'published')->where('jenis', 'news')->get();
@@ -421,6 +531,7 @@ class HomeController extends Controller
         $annualreport = Annual_report::orderBy('id', 'desc')->limit(4)->get();
 
 
-        return view('home.mediainvestor', compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'news', 'article', 'annualreport'));
+        $view = ($lang == 'en') ? 'english.mediainvestor' : 'home.mediainvestor';
+        return view($view, compact('title', 'seo_title', 'seo_meta_description', 'logo', 'header_image', 'header_text', 'news', 'article', 'annualreport'));
     }
 }
