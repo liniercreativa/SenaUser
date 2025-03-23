@@ -452,7 +452,7 @@
                 <div class="col-xxl-6 col-xl-6 col-lg-5 position-relative pt-100 pb-100 text-dark-gray">
                     <div class="contact-form-style-03 position-relative ps-15 pe-15 xxl-ps-10 xxl-pe-10 lg-ps-5 lg-pe-5 overflow-hidden last-paragraph-no-margin"
                         data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h1 class="lh-36 mb-40px xs-mb-25px fw-bold">
+                        <h1 class="lh-36 mb-40px xs-mb-25px fw-bold" style="line-height: 65px !important;">
                             {{ $disiplin->headline_eng }}
                         </h1>
                         <div class="row row-cols-1 row-cols-sm-3">
